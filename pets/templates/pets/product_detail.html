@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ product.name }} - Pet Shop</title>
+  <link rel="stylesheet" href="{% static 'pets/css/style.css' %}">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">RITESIZE Pet Shop 🐾</div>
+    <nav>
+      <a href="{% url 'pets:index' %}">Home</a>
+      <a href="{% url 'pets:product_list' %}">Products</a>
+      <a href="{% url 'pets:checkout' %}">Checkout</a>
+    </nav>
+    <button id="cartBtn">🛒 Cart (<span id="cartCount">0</span>)</button>
+  </header>
+
+  <section class="product-detail">
+    <h2>{{ product.name }}</h2>
+    <div class="product-detail-container">
+      <img src="{{ product.image.url }}" alt="{{ product.name }}">
+      <div class="product-info">
+        <p><strong>Price:</strong> ${{ product.price }}</p>
+        <p>{{ product.description }}</p>
+        <button class="addCart" data-name="{{ product.name }}" data-price="{{ product.price }}">Add to Cart</button>
+      </div>
+    </div>
+    <a href="{% url 'pets:product_list' %}" class="btn">Back to Products</a>
+  </section>
+
+  <footer>
+    &copy; 2025 Pet Shop. All rights reserved.
+  </footer>
+
+  <script src="{% static 'pets/js/script.js' %}"></script>
+</body>
+</html>

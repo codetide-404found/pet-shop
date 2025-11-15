@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products - Pet Shop</title>
+  <link rel="stylesheet" href="{% static 'pets/css/style.css' %}">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">Pet Shop 🐾</div>
+    <nav>
+      <a href="{% url 'pets:index' %}">Home</a>
+      <a href="{% url 'pets:checkout' %}">Checkout</a>
+    </nav>
+    <button id="cartBtn">🛒 Cart (<span id="cartCount">0</span>)</button>
+  </header>
+
+  <section class="products-preview">
+    <h2>All Products</h2>
+    <div class="product-cards">
+      <!-- Example Product -->
+      <div class="product-card">
+        <img src="{% static 'pets/images/mambe.jpg' %}" alt="Premium Pet Food">
+        <h3>Premium Pet Food</h3>
+        
+        <a href="{% url 'pets:product_detail' 1 %}" class="btn">View Details</a>
+        <button class="addCart" data-name="Premium Pet Food" >Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="{% static 'pets/images/collar.jpg' %}" alt="Comfort Pet Collar">
+        <h3>Comfort Pet Collar</h3>
+        
+        <a href="{% url 'pets:product_detail' 2 %}" class="btn">View Details</a>
+        <button class="addCart" data-name="Comfort Pet Collar" >Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="{% static 'pets/images/cage.jpg' %}" alt="Pet Cage">
+        <h3>Pet Cage</h3>
+       
+        <a href="{% url 'pets:product_detail' 3 %}" class="btn">View Details</a>
+        <button class="addCart" data-name="Pet Cage" >Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Pet Shop. All rights reserved.
+  </footer>
+
+  <script src="{% static 'pets/js/script.js' %}"></script>
+</body>
+</html>

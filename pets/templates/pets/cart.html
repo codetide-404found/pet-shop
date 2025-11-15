@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">p
+  <title>Your Cart — Pet Shop</title>
+  <link rel="stylesheet" href="{% static 'pets/css/style.css' %}">
+</head>
+<body>
+  <header>
+    <h1>🐾 RITESIZE Pet Shop</h1>
+    <nav>
+      <a href="{% url 'pets:product_list' %}">Products</a> |
+      <a href="{% url 'pets:checkout' %}">Checkout</a>
+    </nav>
+    <hr>
+  </header>
+
+  <main>
+    <h2>Your Cart</h2>
+
+    {% if cart_items %}
+      <table>
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Pet</th>
+            <th>Quantity</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in cart_items %}
+          <tr>
+            <td>
+              {% if item.image_url %}
+                <img src="{{ item.image_url }}" alt="{{ item.name }}" width="80" height="80">
+              {% else %}
+                No Image
+              {% endif %}
+            </td>
+            <td>{{ item.name }}</td>
+            <td>
+              <form action="{% url 'pets:update_cart' item.id %}" method="post">
+                {% csrf_token %}
+                <input type="number" name="quantity" value="{{ item.quantity }}" min="0" max="{{ item.stock }}">
+                <button type="submit">Update</button>
+              </form>
+            </td>
+            <td>
+              <form action="{% url 'pets:remove_from_cart' item.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Remove</button>
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <p><a href="{% url 'pets:checkout' %}">Proceed to Checkout</a></p>
+    {% else %}
+      <p>Your cart is empty.</p>
+      <p><a href="{% url 'pets:product_list' %}">Browse pets</a></p>
+    {% endif %}
+  </main>
+
+  <footer>
+    <hr>
+    <p>&copy; 2025 RiteSize Pet And Veterinary Shop</p>
+  </footer>
+</body>
+</html>

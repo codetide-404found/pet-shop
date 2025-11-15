@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmed - Pet Shop</title>
+  <link rel="stylesheet" href="{% static 'pets/css/style.css' %}">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Pet Shop 🐾</div>
+    <nav>
+      <a href="{% url 'pets:index' %}">Home</a>
+      <a href="{% url 'pets:product_list' %}">Products</a>
+    </nav>
+  </header>
+
+  <!-- Confirmation Section -->
+  <section class="confirmation">
+    <h2>🎉 Your Order is Confirmed!</h2>
+    <p>Thank you for shopping with us. We have received your order and will process it shortly.</p>
+    <a href="{% url 'pets:index' %}" class="btn">Return Home</a>
+  </section>
+
+  <footer>
+    &copy; 2025 Pet Shop. All rights reserved.
+  </footer>
+
+</body>
+</html>

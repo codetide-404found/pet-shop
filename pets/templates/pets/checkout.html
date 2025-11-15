@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Pet Shop</title>
+  <link rel="stylesheet" href="{% static 'pets/css/style.css' %}">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">RITESIZE Pet Shop 🐾</div>
+    <nav>
+      <a href="{% url 'pets:index' %}">Home</a>
+      <a href="{% url 'pets:product_list' %}">Products</a>
+      <a href="{% url 'pets:checkout' %}">Checkout</a>
+    </nav>
+    <button id="cartBtn">🛒 Cart (<span id="cartCount">0</span>)</button>
+  </header>
+
+  <!-- Checkout Section -->
+  <section class="checkout">
+    <h2>Checkout</h2>
+    <ul id="checkoutItems" class="product-cards">
+      <!-- JS renders cart items here -->
+    </ul>
+   
+    <button id="checkoutBtn" class="btn">Confirm Order</button>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Pet Shop. All rights reserved.
+  </footer>
+
+  <script src="{% static 'pets/js/script.js' %}"></script>
+</body>
+</html>
