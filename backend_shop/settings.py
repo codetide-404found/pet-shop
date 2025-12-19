@@ -13,9 +13,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-hp#g+cq&5(%3ym@x+^nfxv^w8os%e)6t7hvagycy*(q2tn)#vi'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['your-render-pet-shop.onrender.com']
 
 
 # Application definition
