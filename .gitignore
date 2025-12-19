@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Django stuff
+db.sqlite3
+media/
+
+# Environment variables / secrets
+.env
+.env.*
+
+# Static files collected for production
+staticfiles/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor settings
+.vscode/
+.idea/
+
+# Test / coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Migrations (optional)
+# If you're working in a team, you may want to TRACK migrations
+# Uncomment below only if you really want to ignore them
+# */migrations/*.py
+# !*/migrations/__init__.py
