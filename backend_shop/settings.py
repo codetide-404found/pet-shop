@@ -15,7 +15,13 @@ SECRET_KEY = 'django-insecure-hp#g+cq&5(%3ym@x+^nfxv^w8os%e)6t7hvagycy*(q2tn)#vi
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['your-render-pet-shop.onrender.com']
+ALLOWED_HOSTS = ["*"]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://pet-shop.onrender.com",
+    "https://*.onrender.com",
+]
+
 
 
 # Application definition
